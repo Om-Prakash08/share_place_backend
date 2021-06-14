@@ -1,0 +1,8 @@
+{
+    "env" :{
+        "Db_User" :"om" ,
+        "Db_Password":"om" ,
+        "Db_Name":"share_place",
+        "JWT_KEY":"supersecret_dont_share"
+    }
+}
