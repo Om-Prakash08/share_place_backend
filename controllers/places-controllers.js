@@ -85,6 +85,7 @@ const getPlacesByUserId = async (req, res, next) => {
 
 
 const createPlace = async (req, res, next) => {
+  console.log(req.body) ;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(
@@ -109,14 +110,15 @@ const createPlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image: req.file.path,
+    image: req.body.image,
     creator,
   });
-  // console.log(creator) ;
+  //console.log(creator) ;
   let user;
   try {
     user = await User.findById(creator);
   } catch (err) {
+    //console.log(err) ;
     return next(
       new HttpError("Creating new place failed, please try again", 500)
     );
