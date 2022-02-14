@@ -6,9 +6,17 @@ const mongoose = require("mongoose");
 const HttpError = require("./models/http-error");
 const placeRoutes = require("./routes/places-route");
 const UsersRoutes = require("./routes/users-route");
+require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
+
 app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: true,
+  })
+);
 
 app.use('/uploads/images',express.static(path.join('uploads','images'))) ;
 
